@@ -11,10 +11,19 @@ The recommended way to setup your development environment is to use Anaconda:
 
 `conda activate rl-course`
 
-4. Install the `numpy` and `gym` packages
+4. Install the following packages with conda. Execute:
+
+`conda install numpy pandas matplotlib scikit-learn jupyter`
+
+5. Install the `gym` package with conda. Execute:
 
 `conda install -c conda-forge gym`
 
-4. Test your setup by running:
+6. Install pyTorch with conda. Execute:
+
+`conda install pytorch cpuonly -c pytorch`
+
+7. Test your setup by running:
 
 `python3 1_FrozenLake_Random.py`
+
