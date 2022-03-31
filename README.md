@@ -17,7 +17,7 @@ The recommended way to setup your development environment is to use Anaconda:
 
 5. Install the `gym` package with conda. Execute:
 
-`conda install -c conda-forge gym`
+`conda install -c conda-forge gym=0.21.0`
 
 6. Install pyTorch with conda. Execute:
 
