@@ -5,4 +5,16 @@ In this second lab we implement the `policy iteration algorithm` that we saw in 
 ### Task:
 - Create a new file and use the slippery environment of `FrozenLake`, i.e. `env = gym.make("FrozenLake-v1", is_slippery=True)`
 - Implemente the `policy iteration algorithm` that we saw in the lecture to finde the best policy.
-Hint: You can access the transition probabilty matrix of the environemnt with `env.env.P` , all states with `env.env.nS` and all actions with `env.env.nA`.
+Hint: You can access the transition probabilty matrix of the environemnt with `env.env.P` , all states with `env.env.nS` and all actions with `env.env.nA`. 
+
+The following code shows how you can work with `env.env.P`:
+
+```
+m = env.env.P
+for p, s_next, reward, _ in m[s][a]
+	print(p)
+	print(s_next)
+	print(reward)
+```
+
+This will give you for a given state `s` and action `a` all possible next states, the according transition probability and the associated reward.
