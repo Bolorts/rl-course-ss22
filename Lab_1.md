@@ -12,11 +12,11 @@ Take a look at the file `1_FrozenLake_Random.py` to have a starting point for th
 
 ### Task 2:
 - Increase the map size using the 8x8 env:
- `env_8x8 = gym.make("FrozenLake-v0", is_slippery=False, map_name="8x8")`
+ `env_8x8 = gym.make("FrozenLake-v1", is_slippery=False, map_name="8x8")`
 - Compare the results to task 1.
 
 ### Task 3:
 - Use the learned policy from Task 1 and execute it in an 4x4 environment that is slippery:
-`env_slippery = gym.make("FrozenLake-v0", is_slippery=True)`
+`env_slippery = gym.make("FrozenLake-v1", is_slippery=True)`
 - What is the problem with the learned policy?
 - How can we learn a good policy in such an environment?
