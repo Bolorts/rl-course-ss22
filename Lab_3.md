@@ -26,3 +26,4 @@ Use now the learned Q-values to simulate episodes:
 
 ### Task 3:
 Repeat task 1 and 2, but this time use TD-Prediction for estimating the Q-values.
+Use `alpha = 0.01`.
