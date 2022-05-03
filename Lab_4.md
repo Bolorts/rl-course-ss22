@@ -13,7 +13,14 @@ This code uses a random policy and plots the collected rewards over time.
 - Change the `play_episode` method such that it uses an epsilon-greedy policy based on the current Q-values.
 - Try out the following epsilons: `[0.01, 0.1, 0.5, 1.0]` and show all results for all epsilons together in one plot (i.e. every epsilon one curve in the plot).
 
-### Task 2:
+### Task 3:
+Implement now SARSA as comparison control strategy:
+
+- Redo task 1 using Q-Learning instead of MC control (use `alpha=0.5`).
+- As above, try out the different epsilons and compare them in one plot.
+
+
+### Task 3:
 Implement now Q-learning as comparison control strategy:
 
 - Redo task 1 using Q-Learning instead of MC control (use `alpha=0.5`).
