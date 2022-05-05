@@ -27,7 +27,7 @@ def play_episode(q_values, epsilon):
     r_s = []
     while not done:
         next_state, reward, done, _ = env.step(action)
-        next_action = choose_action(q_values, state, epsilon)
+        next_action = choose_action(q_values, next_state, epsilon)
 
         q_values[state, action] += alpha*(reward + q_values[next_state, next_action] - q_values[state, action])
         state = next_state
