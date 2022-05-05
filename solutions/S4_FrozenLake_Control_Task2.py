@@ -8,6 +8,8 @@ random.seed(0)
 np.random.seed(0)
 env.seed(0)
 
+alpha = 0.5
+
 print("## Frozen Lake ##")
 print("Start state:")
 env.render()
@@ -19,16 +21,21 @@ no_actions = env.action_space.n
 def play_episode(q_values, epsilon):
 
     state = env.reset()
+    action = choose_action(q_values, state, epsilon)
     done = False
-    r_s = []
-    s_a = []
-    while not done:
-        action = choose_action(q_values, state, epsilon)
 
-        s_a.append((state, action))
-        state, reward, done, _ = env.step(action)
+    r_s = []
+    while not done:
+        next_state, reward, done, _ = env.step(action)
+        next_action = choose_action(q_values, state, epsilon)
+
+        q_values[state, action] += alpha*(reward + q_values[next_state, next_action] - q_values[state, action])
+        state = next_state
+        action = next_action
+
         r_s.append(reward)
-    return s_a, r_s
+
+    return r_s
 
 
 def choose_action(q_values, state, epsilon):
@@ -50,18 +57,11 @@ def main():
     for e in epsilons:
 
         q_values = np.zeros((no_states, no_actions))
-        q_counter = np.zeros((no_states, no_actions))
 
         rewards = []
         for j in range(0, no_episodes):
-            s_a, r = play_episode(q_values, epsilon=e)
+            r = play_episode(q_values, epsilon=e)
             rewards.append(sum(r))
-
-            # update q-values with MC-prediction
-            for i, (s, a) in enumerate(s_a):
-                return_i = sum(r[i:])
-                q_counter[s][a] += 1
-                q_values[s][a] += 1/q_counter[s][a] * (return_i - q_values[s][a])
 
         plot_data.append(np.cumsum(rewards))
 
