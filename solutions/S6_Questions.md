@@ -1,4 +1,4 @@
-# Lab 5
+# Lab 6 - Solution
 
 
 - What dimension is the input and output tensor of the neural network and what does every dimension mean?
